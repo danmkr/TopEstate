@@ -24,7 +24,7 @@
             </ul>
             {% if user.is_authenticated %}
                 <div>
-                    <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+                    <a href="{% url 'logout' %}" class="btn btn-danger">Logout, {{ user.username }}</a>
                 </div>
             {% else %}
                 <div>
