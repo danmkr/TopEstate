@@ -15,5 +15,3 @@ class SearchForm(forms.ModelForm):
         'tip_achizitie': Select(attrs={'class': 'form-select'})
         }
 
-    def __str__(self):
-        return f'{self.localitate}'
