@@ -23,6 +23,9 @@
                 </li>
             </ul>
             {% if user.is_authenticated %}
+                <div class = 'p-2'>
+                    <a href="{% url 'create-post' %}" class="btn btn-primary"> + adauga un anunt </a>
+                </div>
                 <div>
                     <a href="{% url 'logout' %}" class="btn btn-danger">Logout, {{ user.username }}</a>
                 </div>
