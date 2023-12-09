@@ -1,0 +1,21 @@
+from django.db import models
+
+
+class Search(models.Model):
+
+    optiuni_proprietati = (
+        ('apartamente', 'Apartamente'),
+        ('case/vile', 'Case/Vile'),
+        ('terenuri', 'Terenuri')
+    )
+
+    optiuni_achizitie = (
+        ('de vanzare', 'De vanzare'),
+        ('de inchiriat', 'De inchiriat')
+    )
+
+    localitate = models.CharField(max_length=30)
+    tip_proprietate = models.CharField(choices=optiuni_proprietati, max_length=30)
+    tip_achizitie = models.CharField(choices=optiuni_achizitie, max_length=30)
+
+# Create your models here.
