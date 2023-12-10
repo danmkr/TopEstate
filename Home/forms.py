@@ -12,6 +12,6 @@ class SearchForm(forms.ModelForm):
         widgets = {
         'localitate': TextInput(attrs={'class': 'form-control', 'placeholder': 'Introdu localitatea'}),
         'tip_proprietate': Select(attrs={'class': 'form-select'}),
-        'tip_achizitie': Select(attrs={'class': 'form-select'})
+        'tip_achizitie': Select(attrs={'class': 'form-select'}),
+        'categorie': Select(attrs={'class': 'form-select'})
         }
-
