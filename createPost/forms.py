@@ -16,5 +16,6 @@ class AnuntForm(forms.ModelForm):
         'suprafata_utila': NumberInput(attrs={'class':'form-control', 'placeholder': 'Introdu suprafata utila'}),
         'pret': NumberInput(attrs={'class':'form-control', 'placeholder': 'Introdu pretul'}),
         'localizare': TextInput(attrs={'class': 'form-control', 'placeholder': 'Introdu adresa'}),
-        'descriere': Textarea(attrs={'class': 'form-control', 'placeholder': 'Please enter your description', 'rows': 3})
+        'descriere': Textarea(attrs={'class': 'form-control', 'placeholder': 'Please enter your description', 'rows': 3}),
+        'tip_anunt': Select(attrs={'class': 'form-control'}),
         }
