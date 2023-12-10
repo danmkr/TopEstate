@@ -29,4 +29,5 @@ urlpatterns = [
     path("login/", views.LoginView.as_view(form_class=AuthenticationNewForm), name="login"),
     path('', include('django.contrib.auth.urls')),
     path('', include('createPost.urls')),
+    path('', include('sellMethod.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

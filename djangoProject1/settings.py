@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'Home',
     'userextend',
     'createPost',
+    'sellMethod',
 ]
 
 MIDDLEWARE = [
