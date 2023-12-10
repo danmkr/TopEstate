@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, TemplateView
+from django.views.generic import CreateView, TemplateView, ListView
 
 from createPost.forms import AnuntForm
 from createPost.models import Anunt
@@ -12,14 +12,25 @@ class CreatePostView(CreateView):
     form_class = AnuntForm
     success_url = reverse_lazy('home')
 
-class Comision0View(TemplateView):
+
+class ListeView:
+    pass
+
+
+class Comision0View(ListView):
     template_name = 'createPost/comision_0.html'
+    model = Anunt
+    context_object_name = 'all_announce'
 
-class AgentiiImobiliareView(TemplateView):
+class AgentiiImobiliareView(ListView):
     template_name = 'createPost/agentii_imobiliare.html'
+    model = Anunt
+    context_object_name = 'all_announce'
 
-class AnsambluRezidentialView(TemplateView):
+class AnsambluRezidentialView(ListView):
     template_name = 'createPost/ansamblu_rezidential.html'
+    model = Anunt
+    context_object_name = 'all_announce'
 
 def comision_o_view(request):
     anunturi = Anunt.objects.filter(tip_anunt='C0')
