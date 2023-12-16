@@ -6,16 +6,10 @@ from Home.models import Search
 from createPost.models import Anunt, Promovare
 
 
-class HomeTemplateView(CreateView):
+class HomeTemplateView(CreateView, ListView):
     template_name = 'Home/homepage.html'
-    model = Search
-    form_class = SearchForm
-
-class HomePageView(ListView):
-    template_name = 'Home/homepage.html'
-    model = Promovare
+    model = Search, Promovare, Anunt
     context_object_name = 'all_announce'
+    form_class = SearchForm
     def get_queryset(self):
-        return Anunt.objects.filter(tip_anunt='TL')
-
-
+        return Promovare.objects.filter(tip_anunt='TL')
