@@ -23,6 +23,6 @@ class Search(models.Model):
     localitate = models.CharField(max_length=30)
     tip_proprietate = models.CharField(choices=optiuni_proprietati, max_length=30)
     tip_achizitie = models.CharField(choices=optiuni_achizitie, max_length=30)
-    categorie = models.CharField(choices=optiuni_categorii, max_length=30)
+    categorie = models.CharField(choices=optiuni_categorii, max_length=30, default='C0')
 
 # Create your models here.

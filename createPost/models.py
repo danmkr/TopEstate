@@ -40,4 +40,5 @@ class Promovare(models.Model):
     ]
 
     metoda_de_promovare = models.CharField(choices=tipuri_promovare, max_length=2, default="SP")
+    anunt = models.ForeignKey(Anunt, on_delete=models.CASCADE)
 

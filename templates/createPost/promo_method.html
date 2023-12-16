@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Posteaza un anunt{% endblock %}
+
+{% block content %}
+	<div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <br>
+                <div class="card">
+                     <div class="card-header">
+                         <h3 class="text-center">Alege pachetul de promovare</h3>
+                     </div>
+                     <form method="post" enctype="multipart/form-data">
+                         {% csrf_token %}
+                         <div class="card-body">
+                             {{ form.as_p }}
+                         </div>
+                         <div class="card-footer text-center">
+                             <button class="btn btn-success" type="submit">Posteaza anuntul</button>
+                         </div>
+                     </form>
+                 </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

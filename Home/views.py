@@ -3,7 +3,7 @@ from django.views.generic import TemplateView, CreateView, ListView
 
 from Home.forms import SearchForm
 from Home.models import Search
-from createPost.models import Anunt
+from createPost.models import Anunt, Promovare
 
 
 class HomeTemplateView(CreateView):
@@ -13,9 +13,9 @@ class HomeTemplateView(CreateView):
 
 class HomePageView(ListView):
     template_name = 'Home/homepage.html'
-    model = Anunt
+    model = Promovare
     context_object_name = 'all_announce'
     def get_queryset(self):
-        return Anunt.objects.filter(tip_anunt='C0')
+        return Anunt.objects.filter(tip_anunt='TL')
 
 

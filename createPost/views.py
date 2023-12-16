@@ -10,7 +10,7 @@ class CreatePostView(CreateView):
     template_name = 'createPost/create_post.html'
     model = Anunt
     form_class = AnuntForm
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('promo-method')
 
 class PromoMethodView(CreateView):
     template_name = 'createPost/promo_method.html'
