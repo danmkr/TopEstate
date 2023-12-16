@@ -26,10 +26,11 @@ class Anunt(models.Model):
     titul_anunt = models.CharField(max_length=80)
     poze = models.ImageField(upload_to='media/', null=True)
     suprafata_utila = models.CharField(max_length=10)
+    numar_carte_funciara = models.CharField(max_length= 15)
     pret = models.CharField(max_length=30)
     localizare = models.CharField(max_length=80)
     descriere = models.TextField(max_length=500)
-    tip_anunt = models.CharField(choices=tipuri_anunt, max_length=2, default='C0')
+    tip_anunt = models.CharField(choices=tipuri_anunt, max_length=2)
 
 class Promovare(models.Model):
 

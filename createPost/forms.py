@@ -14,9 +14,10 @@ class AnuntForm(forms.ModelForm):
         'tip_vanzare': Select(attrs={'class': 'form-control'}),
         'titul_anunt': TextInput(attrs={'class': 'form-control', 'placeholder': 'Introdu un titlu'}),
         'suprafata_utila': NumberInput(attrs={'class':'form-control', 'placeholder': 'Introdu suprafata utila'}),
+        'numar_carte_funciara': TextInput(attrs={'class': 'form-control', 'placeholder': 'Introdu numarul de carte funciara'}),
         'pret': NumberInput(attrs={'class':'form-control', 'placeholder': 'Introdu pretul'}),
         'localizare': TextInput(attrs={'class': 'form-control', 'placeholder': 'Introdu adresa'}),
-        'descriere': Textarea(attrs={'class': 'form-control', 'placeholder': 'Please enter your description', 'rows': 3}),
+        'descriere': Textarea(attrs={'class': 'form-control', 'placeholder': 'Introdu descrierea', 'rows': 3}),
         'tip_anunt': Select(attrs={'class': 'form-control'}),
         }
 
