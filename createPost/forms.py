@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import TextInput, Select, NumberInput, Textarea
 
-from createPost.models import Anunt
+from createPost.models import Anunt, Promovare
 
 
 class AnuntForm(forms.ModelForm):
@@ -18,4 +18,13 @@ class AnuntForm(forms.ModelForm):
         'localizare': TextInput(attrs={'class': 'form-control', 'placeholder': 'Introdu adresa'}),
         'descriere': Textarea(attrs={'class': 'form-control', 'placeholder': 'Please enter your description', 'rows': 3}),
         'tip_anunt': Select(attrs={'class': 'form-control'}),
+        }
+
+class PromoForm(forms.ModelForm):
+    class Meta:
+        model = Promovare
+        fields = '__all__'
+
+        widgets = {
+        'metoda_de_promovare': Select(attrs={'class': 'form-control'})
         }

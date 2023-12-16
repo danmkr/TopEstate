@@ -31,3 +31,13 @@ class Anunt(models.Model):
     descriere = models.TextField(max_length=500)
     tip_anunt = models.CharField(choices=tipuri_anunt, max_length=2, default='C0')
 
+class Promovare(models.Model):
+
+    tipuri_promovare = [
+        ('SP', 'Promovare Simpla'),
+        ('PP', 'Promovare Premium'),
+        ('TL', 'Top Listing')
+    ]
+
+    metoda_de_promovare = models.CharField(choices=tipuri_promovare, max_length=2, default="SP")
+
