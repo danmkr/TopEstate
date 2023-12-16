@@ -8,21 +8,21 @@
         <div class="row">
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'ansamblu-rezidential' %}">Ansamblu Rezidential</a>
+                    <a class="nav-link active" href="{% url 'ansamblu-rezidential' %}">Ansamblu Rezidential</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="{% url 'sell-AR' %}">Vanzari</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="{% url 'rent-AR' %}">Inchirieri</a>
+                    <a class="nav-link" href="{% url 'rent-AR' %}">Inchirieri</a>
                 </li>
             </ul>
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'rent-AR-ap' %}">Apartamente</a>
+                    <a class="nav-link" href="{% url 'AR-ap' %}">Apartamente</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="{% url 'rent-AR-case' %}">Case/Vile</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'AR-case' %}">Case/Vile</a>
                 </li>
             </ul>
             {% if user.is_authenticated %}
