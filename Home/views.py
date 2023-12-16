@@ -8,8 +8,13 @@ from createPost.models import Anunt, Promovare
 
 class HomeTemplateView(CreateView, ListView):
     template_name = 'Home/homepage.html'
-    model = Search, Promovare, Anunt
+    model = Anunt, Promovare
     context_object_name = 'all_announce'
     form_class = SearchForm
     def get_queryset(self):
-        return Promovare.objects.filter(tip_anunt='TL')
+        return Promovare.objects.filter(anunt__tip_anunt='TL')
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['searches'] = Search.objects.all()
+        context['promovares'] = Promovare.objects.all()
+        return context
