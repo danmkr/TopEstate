@@ -17,27 +17,31 @@
                     <a class="nav-link active" href="{% url 'rent-C0' %}">Inchirieri</a>
                 </li>
             </ul>
-            {% for anunt in all_announce %}
-                <div class="col-md-3 ">
-                    <br><br>
-                    <div class="card" style="width: 18rem;">
-                        {% if anunt.poze %}
-                            <img src="{{ anunt.poze.url }}" class="card-img-top" alt="...">
-                        {% else %}
-                            <img src="{% static 'images/no_image_available.png' %}" class="card-img-top" alt="...">
-                        {% endif %}
-                        <div class="card-body">
-                            <h5 class="card-title">{{ anunt.titul_anunt }}</h5>
-                            <p class="card-text">{{ anunt.pret }}</p>
-                            <p class="card-text">{{ anunt.localizare }}</p>
-                            <p class="card-text">{{ anunt.tip_vanzare }}</p>
-                            <p class="card-text">{{ anunt.descriere }}</p>
-                            <p class="card-text">{{ anunt.tip_vanzare }}</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+            {% if user.is_authenticated %}
+                {% for anunt in all_announce %}
+                    <div class="col-md-3 ">
+                        <br><br>
+                        <div class="card" style="width: 18rem;">
+                            {% if anunt.poze %}
+                                <img src="{{ anunt.poze.url }}" class="card-img-top" alt="...">
+                            {% else %}
+                                <img src="{% static 'images/no_image_available.png' %}" class="card-img-top" alt="...">
+                            {% endif %}
+                            <div class="card-body">
+                                <h5 class="card-title">{{ anunt.titul_anunt }}</h5>
+                                <p class="card-text">{{ anunt.pret }}</p>
+                                <p class="card-text">{{ anunt.localizare }}</p>
+                                <p class="card-text">{{ anunt.tip_vanzare }}</p>
+                                <p class="card-text">{{ anunt.descriere }}</p>
+                                <p class="card-text">{{ anunt.tip_vanzare }}</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            {% else %}
+                <p><a href="{% url 'login' %}"> Intra in cont pentru a vedea anunturile </a></p>
+            {% endif %}
         </div>
     </div>
 {% endblock %}
