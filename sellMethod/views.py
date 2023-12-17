@@ -1,8 +1,6 @@
-from django.shortcuts import render
-from django.views.generic import TemplateView, ListView
+from django.views.generic import ListView
 
 from createPost.models import Anunt
-from createPost.views import Comision0View, AgentiiImobiliareView, AnsambluRezidentialView
 
 #region 1. Agentii imobiliare
 
@@ -88,6 +86,29 @@ class RentAgentiiImobiliareTerenuriView(ListView):
 #endregion
 
 # region 2. Comision 0
+class Comision0ApartamenteView(ListView):
+    template_name = 'sellMethod/C0_ap.html'
+    model = Anunt
+    context_object_name = 'all_announce'
+    def get_queryset(self):
+        return Anunt.objects.filter(tip_anunt='C0', tip_proprietate='apartamente')
+
+class Comision0CaseView(ListView):
+    template_name = 'sellMethod/C0_case.html'
+    model = Anunt
+    context_object_name = 'all_announce'
+    def get_queryset(self):
+        return Anunt.objects.filter(tip_anunt='C0', tip_proprietate='case/vile')
+
+class Comision0TerenuriView(ListView):
+    template_name = 'sellMethod/C0_terenuri.html'
+    model = Anunt
+    context_object_name = 'all_announce'
+    def get_queryset(self):
+        return Anunt.objects.filter(tip_anunt='C0', tip_proprietate='terenuri')
+
+
+# Vanzari
 class SellComision0View(ListView):
     template_name = 'sellMethod/sell_C0.html'
     model = Anunt
@@ -95,12 +116,55 @@ class SellComision0View(ListView):
     def get_queryset(self):
         return Anunt.objects.filter(tip_vanzare='de vanzare', tip_anunt='C0')
 
+class SellComision0ApartamenteView(ListView):
+    template_name = 'sellMethod/sell_C0_ap.html'
+    model = Anunt
+    context_object_name = 'all_announce'
+    def get_queryset(self):
+        return Anunt.objects.filter(tip_vanzare='de vanzare', tip_anunt='C0', tip_proprietate='apartamente')
+
+class SellComision0CaseView(ListView):
+    template_name = 'sellMethod/sell_C0_case.html'
+    model = Anunt
+    context_object_name = 'all_announce'
+    def get_queryset(self):
+        return Anunt.objects.filter(tip_vanzare='de vanzare', tip_anunt='C0', tip_proprietate='case/vile')
+
+class SellComision0TerenuriView(ListView):
+    template_name = 'sellMethod/sell_C0_terenuri.html'
+    model = Anunt
+    context_object_name = 'all_announce'
+    def get_queryset(self):
+        return Anunt.objects.filter(tip_vanzare='de vanzare', tip_anunt='C0', tip_proprietate='terenuri')
+
+# Inchirieri
 class RentComision0View(ListView):
     template_name = 'sellMethod/rent_C0.html'
     model = Anunt
     context_object_name = 'all_announce'
     def get_queryset(self):
         return Anunt.objects.filter(tip_vanzare='de inchiriat', tip_anunt='C0')
+
+class RentComision0ApartamenteView(ListView):
+    template_name = 'sellMethod/rent_C0_ap.html'
+    model = Anunt
+    context_object_name = 'all_announce'
+    def get_queryset(self):
+        return Anunt.objects.filter(tip_vanzare='de inchiriat', tip_anunt='C0', tip_proprietate='apartamente')
+
+class RentComision0CaseView(ListView):
+    template_name = 'sellMethod/rent_C0_case.html'
+    model = Anunt
+    context_object_name = 'all_announce'
+    def get_queryset(self):
+        return Anunt.objects.filter(tip_vanzare='de inchiriat', tip_anunt='C0', tip_proprietate='case/vile')
+
+class RentComision0TerenuriView(ListView):
+    template_name = 'sellMethod/rent_C0_terenuri.html'
+    model = Anunt
+    context_object_name = 'all_announce'
+    def get_queryset(self):
+        return Anunt.objects.filter(tip_vanzare='de inchiriat', tip_anunt='C0', tip_proprietate='terenuri')
 
 
 # endregion
