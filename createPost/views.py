@@ -39,5 +39,9 @@ class AnsambluRezidentialView(ListView):
     def get_queryset(self):
         return Anunt.objects.filter(tip_anunt='AR')
 
+def post(request, pk):
+    post = Anunt.objects.get(id=pk)
+    return render(request, 'post.html', {'post': post})
+
 
 
