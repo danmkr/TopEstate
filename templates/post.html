@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %} Home {% endblock %}
+{% block title %} Anunt {% endblock %}
 
 {% block content %}
     {% if user.is_authenticated %}
@@ -11,6 +11,8 @@
             <div class="col-md-6 offset-md-3">
                 <br><br>
             <div class="card">
+                <h5 class="card-title">{{ anunt.titul_anunt }}</h5>
+                {% if anunt.poze %}
                 <div id="carouselExampleIndicators" class="carousel slide">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
@@ -20,7 +22,6 @@
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
                             aria-label="Slide 3"></button>
                     </div>
-                {% if anunt.poze %}
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img src="{{ anunt.poze.url }}" class="d-block w-100" alt="...">
