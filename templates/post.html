@@ -4,16 +4,59 @@
 {% block title %} Home {% endblock %}
 
 {% block content %}
-{% if user.is_authenticated %}
-    <div class="container-fluid">
+    {% if user.is_authenticated %}
+        <div class="container-fluid">
+        {% for anunt in all_announce %}
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <br><br>
-
+            <div class="card">
+                <div id="carouselExampleIndicators" class="carousel slide">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                            class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    </div>
+                {% if anunt.poze %}
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="{{ anunt.poze.url }}" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ anunt.poze.url }}" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ anunt.poze.url }}" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                {% else %}
+                    <img src="{% static 'images/no_image_available.png' %}" class="card-img-top" alt="...">
+                {% endif %}
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+                </div>
+                <br><br>
+                <div class="card-body">
+                <h5>Descriere</h5>
+                <p class="card-text">{{ anunt.descriere }}</p>
+                </div>
             </div>
+        {% endfor %}
         </div>
-{% else %}
+    </div>
+    {% else %}
     <br>
     <p class="text-center"><a href="{% url 'login' %}"> Intra in cont pentru a vedea anuntul </a></p>
-{% endif %}
+    {% endif %}
 {% endblock %}
