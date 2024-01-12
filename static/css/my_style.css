@@ -1,3 +1,7 @@
-.container {
+.box1 {
+    display: inline-block;
+}
+
+.box2 {
     display: inline-block;
 }

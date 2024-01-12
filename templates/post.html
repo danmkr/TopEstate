@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} Anunt {% endblock %}
+{% block title %} {{ post.titul_anunt }} {% endblock %}
 {% block content %}
     {% if user.is_authenticated %}
         <br>
         <div class="container">
-            <div>
+            <div class="box1">
                 <h5>{{ post.titul_anunt }}</h5>
             </div>
-            <div>
+            <div class="box2">
                 <h5>{{ post.pret }} EURO</h5>
             </div>
         </div>
