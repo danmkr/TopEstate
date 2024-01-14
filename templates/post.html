@@ -13,24 +13,34 @@
             </div>
         </div>
         <div class="container-fluid">
-        <div class="row">
-        <div class="col-md-6 offset-md-3">
-            <br><br>
-            {% if post.poze %}
-                <div id="carouselExampleIndicators" class="carousel slide">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="{{ post.poze.url }}" class="d-block w-60" alt="...">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                <br><br>
+                {% if post.poze %}
+                    <div id="carouselExampleIndicators" class="carousel slide">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="{{ post.poze.url }}" class="d-block w-60" alt="...">
+                            </div>
+                        </div>
+                {% else %}
+                    <img src="{% static 'images/no_image_available.png' %}" class="card-img-top" alt="...">
+                {% endif %}
+                    <br><br>
+                    <div class="card-body">
+                        <h5>Descriere</h5>
+                        <p class="card-text">{{ post.descriere }}</p>
+                    </div>
+                <br><br>
+                    <div class="card-body">
+                        <table class="table table-hover">
+                            <tr>
+                                <td>Nr. carte funciara: {{ post.numar_carte_funciara }}</td>
+                                <td>Suprafata utila: {{ post.suprafata_utila }}</td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
-            {% else %}
-                <img src="{% static 'images/no_image_available.png' %}" class="card-img-top" alt="...">
-            {% endif %}
-            <br><br>
-            <div class="card-body">
-                <h5>Descriere</h5>
-                <p class="card-text">{{ post.descriere }}</p>
-            </div>
             </div>
         </div>
     {% else %}
