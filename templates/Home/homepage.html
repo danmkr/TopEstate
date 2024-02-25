@@ -17,18 +17,17 @@
                         <div class="card-body">
                             {{ form.as_p }}
                         </div>
-                    </form>
                     <div class="card-footer text-center">
                         <button class="btn btn-success" type="submit">Search</button>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
         <br>
         <div class="row">
-            <div class="col-md-8 offset-md-2">
                 {% for anunt in 4_tl%}
-                    <div class="col-md-3 ">
+                    <div class="col-md-1 offset-md-2">
                         <br>
                         <div class="card" style="width: 18rem;">
                             {% if anunt.poze %}
@@ -48,7 +47,6 @@
                         </div>
                     </div>
                 {% endfor %}
-            </div>
         </div>
         <br>
         <div class="container-fluid">
