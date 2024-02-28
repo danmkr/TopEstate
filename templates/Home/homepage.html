@@ -17,32 +17,9 @@
             </div>
         </div>
         <br>
-        <div class="container-fluid">
-            <div class="row">
-                {% for anunt in property %}
-                    <div class="col-md-1 offset-md-2">
-                        <br>
-                        <div class="card" style="width: 18rem;">
-                            {% if anunt.poze %}
-                                <img src="{{ anunt.poze.url }}" class="card-img-top" alt="...">
-                            {% else %}
-                                <img src="{% static 'images/no_image_available.png' %}" class="card-img-top" alt="...">
-                            {% endif %}
-                            <div class="card-body">
-                                <h5 class="card-title">{{ anunt.titul_anunt }}</h5>
-                                <p class="card-text">Suprafata utila: {{ anunt.suprafata_utila }} mp</p>
-                                <p class="card-text">Pret: {{ anunt.pret }} euro</p>
-                                <p class="card-text">Localitatea: {{ anunt.localizare }}</p>
-                                <p class="card-text">Descriere: {{ anunt.descriere }}</p>
-                                <p class="card-text">Metoda Achizitie: {{ anunt.tip_vanzare }}</p>
-                                <a href="{% url 'post' anunt.id %}" class="btn btn-primary">Detalii</a>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
         <br>
+        <H3>Proprietati Top Listed</H3>
+        <hr>
         <div class="container-fluid">
             <div class="row">
                 {% for anunt in 4_tl%}
@@ -68,6 +45,8 @@
                 {% endfor %}
             </div>
         </div>
+        <br>
+        <hr>
         <br>
         <div class="container-fluid">
         <div class="row">

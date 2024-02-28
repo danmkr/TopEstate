@@ -26,6 +26,8 @@ class Anunt(models.Model):
     titul_anunt = models.CharField(max_length=80)
     poze = models.ImageField(upload_to='media/', null=True)
     suprafata_utila = models.CharField(max_length=10)
+    numar_camere = models.CharField(max_length=15)
+    numar_bai = models.CharField(max_length=15)
     numar_carte_funciara = models.CharField(max_length= 15)
     pret = models.CharField(max_length=30)
     localizare = models.CharField(max_length=80)

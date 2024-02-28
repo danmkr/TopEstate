@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import Anunt, Promovare
 
-# Register your models here.
+admin.site.register(Anunt)
+admin.site.register(Promovare)

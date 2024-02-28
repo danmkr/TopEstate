@@ -11,7 +11,8 @@ class AnuntFilter(django_filters.FilterSet):
             'localizare': ['icontains'],
             'tip_proprietate': ['exact'],
             'tip_vanzare': ['exact'],
-            'tip_anunt': ['exact']
+            'tip_anunt': ['exact'],
+            'numar_camere': ['exact']
         }
         widgets = {
             'localizare': TextInput(attrs={'class': 'form-control', 'placeholder': 'Introdu localitatea'}),
