@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'userextend',
     'createPost',
     'sellMethod',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
