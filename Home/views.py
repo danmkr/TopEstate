@@ -7,13 +7,13 @@ from createPost.models import Anunt, Promovare
 from Home.filters import AnuntFilter
 
 
-def filter(request):
+def Filter(request):
     property_filter = AnuntFilter(request.GET, queryset=Anunt.objects.all())
     context = {
         'form': property_filter.form,
         'property': property_filter.qs
         }
-    return render(request, 'Home/homepage.html', context)
+    return render(request, 'Home/filter.html', context)
 
 class HomeTemplateView(CreateView, ListView):
     template_name = 'Home/homepage.html'

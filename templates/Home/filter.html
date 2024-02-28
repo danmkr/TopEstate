@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Cauta {% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <br><br>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-center"> Cauta </h3>
+                    </div>
+                    <form method="GET" action="{% url 'filter' %}">
+                        {% csrf_token %}
+                            <div class="card-body">
+                                {{ form.as_p }}
+                            </div>
+                        <div class="card-footer text-center">
+                            <button class="btn btn-success" type="submit">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="container-fluid">
+            <div class="row">
+                {% for anunt in property %}
+                    <div class="col-md-3">
+                        <br>
+                        <div class="card" style="width: 18rem;">
+                            {% if anunt.poze %}
+                                <img src="{{ anunt.poze.url }}" class="card-img-top" alt="...">
+                            {% else %}
+                                <img src="{% static 'images/no_image_available.png' %}" class="card-img-top" alt="...">
+                            {% endif %}
+                            <div class="card-body">
+                                <h5 class="card-title">{{ anunt.titul_anunt }}</h5>
+                                <p class="card-text">Suprafata utila: {{ anunt.suprafata_utila }} mp</p>
+                                <p class="card-text">Pret: {{ anunt.pret }} euro</p>
+                                <p class="card-text">Localitatea: {{ anunt.localizare }}</p>
+                                <p class="card-text">Descriere: {{ anunt.descriere }}</p>
+                                <p class="card-text">Metoda Achizitie: {{ anunt.tip_vanzare }}</p>
+                                <a href="{% url 'post' anunt.id %}" class="btn btn-primary">Detalii</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+            <table class="table table-hover"></table>
+            <table class="table table-hover"></table>
+            <table class="table table-hover"></table>
+{% endblock %}
