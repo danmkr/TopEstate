@@ -39,6 +39,7 @@
                                 <p class="card-text">Descriere: {{ anunt.descriere }}</p>
                                 <p class="card-text">Metoda Achizitie: {{ anunt.tip_vanzare }}</p>
                                 <a href="{% url 'post' anunt.id %}" class="btn btn-primary">Detalii</a>
+                                <a href="{% url 'delete' anunt.id %}" class="btn btn-danger">Delete</a>
                             </div>
                         </div>
                     </div>

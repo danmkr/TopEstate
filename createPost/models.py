@@ -34,6 +34,10 @@ class Anunt(models.Model):
     descriere = models.TextField(max_length=500)
     tip_anunt = models.CharField(choices=tipuri_anunt, max_length=2)
 
+    def delete(self, *args, **kwargs):
+        self.active = False
+        return super().save(*args, **kwargs)
+
 class Promovare(models.Model):
 
     tipuri_promovare = [

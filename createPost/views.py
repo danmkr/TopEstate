@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, DeleteView
 
 from createPost.forms import AnuntForm, PromoForm
 from createPost.models import Anunt, Promovare
@@ -42,6 +42,11 @@ class AnsambluRezidentialView(ListView):
 def post(request, pk):
     post = Anunt.objects.get(id=pk)
     return render(request, 'post.html', {'post': post})
+
+class PostDeleteView(DeleteView):
+    template_name = 'createPost/delete_post.html'
+    model = Anunt
+    success_url = reverse_lazy('home')
 
 
 
